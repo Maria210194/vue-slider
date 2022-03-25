@@ -56,7 +56,7 @@ const app = new Vue({
             // return index == this.activeSlideIndex ? 'thumb active' : 'thumb';
             // modo alternativo per dire la stessa cosa:
             if (index === this.activeSlideIndex) {
-                return 'thumb ative';
+                return 'thumb active';
             }
             return 'thumb';
         }
