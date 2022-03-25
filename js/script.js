@@ -26,4 +26,39 @@ const slides = [
     }
 ];
 
-console.log(slides);
+const app = new Vue({
+    el: '#app',
+    data: {
+        slides,
+        activeSlideIndex: 0,
+
+
+    },
+    methods: {
+        ShowPrevSlide() {
+            if (this.activeSlideIndex > 0) {
+                this.activeSlideIndex--;
+            } else {
+                this.activeSlideIndex = this.slides.length - 1;
+            }
+        },
+        ShowNextSlide() {
+            if (this.activeSlideIndex < this.slides.length - 1) {
+                this.activeSlideIndex++;
+            } else {
+                this.activeSlideIndex = 0;
+            }
+        },
+        checkIfActive(item) {
+            const index = this.slides.findIndex(
+                (slide) => slide.title == item.title
+            )
+            // return index == this.activeSlideIndex ? 'thumb active' : 'thumb';
+            // modo alternativo per dire la stessa cosa:
+            if (index === this.activeSlideIndex) {
+                return 'thumb ative';
+            }
+            return 'thumb';
+        }
+    }
+})
